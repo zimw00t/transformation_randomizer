@@ -61,13 +61,111 @@ def clicked():
 				else:
 					result += 'pink.'
 		elif second in [2,4,6,8,10]:
-			return
+			result += 'Your skin color changes, becoming '
+			third = diceroll(1,10)
+			if third in [1,2,3,5,7,8,9]:
+				fourth = diceroll(1,5)
+				if fourth == 1:
+					result += 'white.'
+				elif fourth == 2:
+					result += 'tanned.'
+				elif fourth == 3:
+					result += 'olive.'
+				elif fourth == 4:
+					result += 'brown.'
+				else:
+					result += 'ebony.'
+			else:
+				fourth = diceroll(1,9)
+				if fourth in [1,5]:
+					result += 'red.'
+				elif fourth in [2,6]:
+					result += 'green.'
+				elif fourth == [3,7]:
+					result += 'blue.'
+				elif fourth in [4,8]:
+					result += 'purple.'
+				else:
+					result += 'clown makeup.'
 		elif second in [14,16,18,20]:
-			return
+			third = diceroll(1,20)
+			if third in [1,8,14,18,20]:
+				fourth = diceroll(1,9)
+				if fourth in [1,5,8]:
+					result = 'Grow a dog tail or replace tail with dog tail.'
+				elif fourth in [2,6,9]:
+					result = 'Grow dog ears or replace other animal ears with dog ears.'
+				elif fourth in [3,7]:
+					result = 'Replace current hands with doggy paws.'
+				else:
+					result = 'Your face changes to become like a dog snout.'
+			elif third in [2,9,15,19]:
+				fourth = diceroll(1,9)
+				if fourth in [1,5,8]:
+					result = 'Grow a cat tail or replace tail with cat tail.'
+				elif fourth in [2,6,9]:
+					result = 'Grow cat ears or replace other animal ears with cat ears.'
+				elif fourth in [3,7]:
+					result = 'Replace current hands with cat claws.'
+				else:
+					result = 'Your face changes to become like a cat, growing whiskers and such.'
+			elif third in [3,10,16]:
+				fourth = diceroll(1,9)
+				if fourth in [1,5,8]:
+					result = 'Grow a horse tail or replace tail with horse tail.'
+				elif fourth in [2,6,9]:
+					result = 'Grow horse ears or replace other animal ears with horse ears.'
+				elif fourth in [3,7]:
+					result = 'Your feet grow into cloven hooves, also growing fur up to the waist.'
+				else:
+					result = 'Your face changes to becomes like a horse.'
+			elif third in [4,11,17]:
+				fourth = diceroll(1,2)
+				if fourth == 1:
+					result = 'Grow a bunny tail or replace tail with bunny tail.'
+				else:
+					result = 'Grow bunny ears or replace other animal ears with bunny ears.'
+			elif third in [5,12]:
+				result = 'Your teeth become sharp like a predator.'
+			elif third in [6,13]:
+				fourth = diceroll(1,10)
+				if fourth in [1,2,3,5,7,8,9]:
+					fifth = diceroll(1,6)
+					if fifth == 1:
+						color = 'blonde.'
+					elif fifth == 2:
+						color = 'auburn.'
+					elif fifth == 3:
+						color = 'brown.'
+					elif fifth == 4:
+						color = 'black.'
+					elif fifth == 5:
+						color = 'gray.'
+					else:
+						color = 'white.'
+				else:
+					fifth = diceroll(1,7)
+					if fifth == 1:
+						color = 'bright neon red.'
+					elif fifth == 2:
+						color = 'orange.'
+					elif fifth == 3:
+						color = 'bright neon yellow.'
+					elif fifth == 4:
+						color = 'green.'
+					elif fifth == 5:
+						color = 'blue.'
+					elif fifth == 6:
+						color = 'purple.'
+					else:
+						color = 'pink.'
+				result = 'Your body grows ' + color + ' colored fur all over.'
+			else:
+				result = 'Grow cow udders under your navel.'
 		elif second in [3,7,17]:
-			return
+			result = 'dragon'
 		elif second in [12,13]:
-			return
+			result = 'slime'
 	elif init in [12,13,28,29,34,35,50,51]:
 		return
 	elif init in [10,11,26,27,36,37,52,53]:

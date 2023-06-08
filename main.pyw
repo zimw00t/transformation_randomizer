@@ -1,3 +1,4 @@
+#init
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -16,17 +17,21 @@ window.title("Randomizer")
 window.geometry('%dx%d+%d+%d' % (250, 70, x, y))
 window.resizable(width=False, height=False)
 
+#diceroll function to implement randomization a little neater
 def diceroll(numdice, numsides):
 	total = 0
 	for r in range(0,numdice):
 		total = total + random.randint(1,numsides)
 	return total
 
+#this is the main meat of the program
 def clicked():
 	result = ''
 	init = diceroll(3,20)
+#===============================================================================================================#Animal Transformation
 	if init in [14,15,30,31,32,33,48,49]:
 		second = diceroll(1,20)
+#---------------------------------------------------------------------------------------------------------------#Fur color
 		if second in [1,5,9,11,15,19]:
 			result += 'All your hair and/or fur is died '
 			third = diceroll(1,10)
@@ -60,6 +65,7 @@ def clicked():
 					result += 'purple.'
 				else:
 					result += 'pink.'
+#---------------------------------------------------------------------------------------------------------------#Skin color
 		elif second in [2,4,6,8,10]:
 			result += 'Your skin color changes, becoming '
 			third = diceroll(1,10)
@@ -87,6 +93,7 @@ def clicked():
 					result += 'purple.'
 				else:
 					result += 'clown makeup.'
+#---------------------------------------------------------------------------------------------------------------#Furry features
 		elif second in [14,16,18,20]:
 			third = diceroll(1,20)
 			if third in [1,8,14,18,20]:
@@ -162,27 +169,45 @@ def clicked():
 				result = 'Your body grows ' + color + ' colored fur all over.'
 			else:
 				result = 'Grow cow udders under your navel.'
+#---------------------------------------------------------------------------------------------------------------#Scaley features
 		elif second in [3,7,17]:
 			result = 'dragon'
+#---------------------------------------------------------------------------------------------------------------#Slime
 		elif second in [12,13]:
 			result = 'slime'
+	
+#===============================================================================================================#Diapers and incontinence
 	elif init in [12,13,28,29,34,35,50,51]:
-		return
+		result = 'diaper'
+	
+#===============================================================================================================#Gender and genitalia
 	elif init in [10,11,26,27,36,37,52,53]:
-		return
+		result = 'genitalia'
+	
+#===============================================================================================================#Mind altering
 	elif init in [8,9,24,25,38,39,54,55]:
-		return
+		result = 'mind'
+	
+#===============================================================================================================#Physical age
 	elif init in [6,7,22,23,40,41,56,57]:
-		return
+		result = 'age'
+	
+#===============================================================================================================#Pregnancy related
 	elif init in [4,5,20,21,42,43,58,59]:
-		return
+		result = 'preg'
+	
+#===============================================================================================================#Bondage
 	elif init in [18,19,44,45]:
-		return
+		result = 'bonds'
+	
+#===============================================================================================================#Rare
 	else:
-		return
+		result = 'other'
 
+	#display the result as a message box
 	messagebox.showinfo('Transformation Result', result)
 
+#the button itself
 btn = tk.Button(frame1, text="Transform Me!", command=clicked)
 btn.pack(pady=20)
 btn.focus()

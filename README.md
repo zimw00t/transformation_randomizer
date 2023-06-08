@@ -1,2 +1,2 @@
 # transformation_randomizer
-python widget that gives a random transformation for roleplay purposes
+This is a simple tool for use in online ERP. If you're seeing this repository all it's probably because I gave you the link directly, so I won't bother putting any specific content warnings. You know what I'm about. Download the latest version of renpy if you don't already have it, clone 'main.pyw' and run it. Then just push the button. Pretty simple.

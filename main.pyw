@@ -22,7 +22,52 @@ def diceroll(numdice, numsides):
 	total = 0
 	for r in range(0,numdice):
 		total = total + random.randint(1,numsides)
+	print('Dice result: ' + str(total))
 	return total
+
+#random color function
+class randomcolor():
+	def hair():
+		second = diceroll(1,6)
+		if second == 1:
+			color = 'blonde'
+		elif second == 2:
+			color = 'auburn'
+		elif second == 3:
+			color = 'brown'
+		elif second == 4:
+			color = 'black'
+		elif second == 5:
+			color = 'gray'
+		else:
+			color = 'white'
+		return color
+	
+	def rainbow():
+		second = diceroll(1,11)
+		if second == 1:
+			color = 'red'
+		elif second == 2:
+			color = 'orange'
+		elif second == 3:
+			color = 'yellow'
+		elif second == 4:
+			color = 'green'
+		elif second == 5:
+			color = 'blue'
+		elif second == 6:
+			color = 'purple'
+		elif second == 7:
+			color = 'pink'
+		elif second == 8:
+			color = 'brown'
+		elif second == 9:
+			color = 'black'
+		elif second == 10:
+			color = 'gray'
+		else:
+			color = 'white'
+		return color
 
 #this is the main meat of the program
 def clicked():
@@ -33,41 +78,15 @@ def clicked():
 		second = diceroll(1,20)
 #---------------------------------------------------------------------------------------------------------------#Fur color
 		if second in [1,5,9,11,15,19]:
-			result += 'All your hair and/or fur is died '
 			third = diceroll(1,10)
 			if third in [1,2,3,5,7,8,9]:
-				fourth = diceroll(1,6)
-				if fourth == 1:
-					result += 'blonde.'
-				elif fourth == 2:
-					result += 'auburn.'
-				elif fourth == 3:
-					result += 'brown.'
-				elif fourth == 4:
-					result += 'black.'
-				elif fourth == 5:
-					result += 'gray.'
-				else:
-					result += 'white.'
+				color = randomcolor.hair()
 			else:
-				fourth = diceroll(1,7)
-				if fourth == 1:
-					result += 'bright neon red.'
-				elif fourth == 2:
-					result += 'orange.'
-				elif fourth == 3:
-					result += 'bright neon yellow.'
-				elif fourth == 4:
-					result += 'green.'
-				elif fourth == 5:
-					result += 'blue.'
-				elif fourth == 6:
-					result += 'purple.'
-				else:
-					result += 'pink.'
+				color = randomcolor.rainbow()
+			result = 'All your hair and/or fur is died ' + color + '.'
 #---------------------------------------------------------------------------------------------------------------#Skin color
 		elif second in [2,4,6,8,10]:
-			result += 'Your skin color changes, becoming '
+			result = 'Your skin color changes, becoming '
 			third = diceroll(1,10)
 			if third in [1,2,3,5,7,8,9]:
 				fourth = diceroll(1,5)
@@ -96,7 +115,7 @@ def clicked():
 #---------------------------------------------------------------------------------------------------------------#Furry features
 		elif second in [14,16,18,20]:
 			third = diceroll(1,20)
-			if third in [1,8,14,18,20]:
+			if third in [1,8,14,18,20]:		#Dog
 				fourth = diceroll(1,9)
 				if fourth in [1,5,8]:
 					result = 'Grow a dog tail or replace tail with dog tail.'
@@ -106,7 +125,8 @@ def clicked():
 					result = 'Replace current hands with doggy paws.'
 				else:
 					result = 'Your face changes to become like a dog snout.'
-			elif third in [2,9,15,19]:
+					
+			elif third in [2,9,15,19]:		#Cat
 				fourth = diceroll(1,9)
 				if fourth in [1,5,8]:
 					result = 'Grow a cat tail or replace tail with cat tail.'
@@ -116,7 +136,8 @@ def clicked():
 					result = 'Replace current hands with cat claws.'
 				else:
 					result = 'Your face changes to become like a cat, growing whiskers and such.'
-			elif third in [3,10,16]:
+					
+			elif third in [3,10,16]:		#Horse
 				fourth = diceroll(1,9)
 				if fourth in [1,5,8]:
 					result = 'Grow a horse tail or replace tail with horse tail.'
@@ -126,56 +147,57 @@ def clicked():
 					result = 'Your feet grow into cloven hooves, also growing fur up to the waist.'
 				else:
 					result = 'Your face changes to becomes like a horse.'
-			elif third in [4,11,17]:
+					
+			elif third in [4,11,17]:		#Bunny
 				fourth = diceroll(1,2)
 				if fourth == 1:
 					result = 'Grow a bunny tail or replace tail with bunny tail.'
 				else:
 					result = 'Grow bunny ears or replace other animal ears with bunny ears.'
-			elif third in [5,12]:
+					
+			elif third in [5,12]:			#Teeth
 				result = 'Your teeth become sharp like a predator.'
-			elif third in [6,13]:
+				
+			elif third in [6,13]:			#Fur
 				fourth = diceroll(1,10)
 				if fourth in [1,2,3,5,7,8,9]:
-					fifth = diceroll(1,6)
-					if fifth == 1:
-						color = 'blonde.'
-					elif fifth == 2:
-						color = 'auburn.'
-					elif fifth == 3:
-						color = 'brown.'
-					elif fifth == 4:
-						color = 'black.'
-					elif fifth == 5:
-						color = 'gray.'
-					else:
-						color = 'white.'
+					color = randomcolor.hair()
 				else:
-					fifth = diceroll(1,7)
-					if fifth == 1:
-						color = 'bright neon red.'
-					elif fifth == 2:
-						color = 'orange.'
-					elif fifth == 3:
-						color = 'bright neon yellow.'
-					elif fifth == 4:
-						color = 'green.'
-					elif fifth == 5:
-						color = 'blue.'
-					elif fifth == 6:
-						color = 'purple.'
-					else:
-						color = 'pink.'
+					color = randomcolor.rainbow()
 				result = 'Your body grows ' + color + ' colored fur all over.'
-			else:
+				
+			else:							#Cow udders
 				result = 'Grow cow udders under your navel.'
 #---------------------------------------------------------------------------------------------------------------#Scaley features
 		elif second in [3,7,17]:
-			result = 'dragon'
+			color = randomcolor.rainbow()
+			third = diceroll(1,20)
+			if third in [1,8,15,20]:
+				result = 'Grow a dragon tail or replace tail with dragon tail. The scales are ' + color + ' colored.'
+			elif third in [2,9,16]:
+				result = 'Grow a pair of horns on your head.'
+			elif third in [3,10,17]:
+				result = 'Sprout demon/dragon wings from your back.'
+			elif third in [4,11,18]:
+				result = 'Replace current hands with lizard/dragon claws.'
+			elif third in [5,12,19]:
+				result = 'Your face changes to becomes like a lizard/dragon.'
+			elif third in [6,13]:
+				result = 'Grow a pattern of ' + color + ' colored lizard/dragon scales all across your body. Doesn\'t necessarily have to replace any fur.'
+			else:
+				result = 'Reptilian hair loss. Either body fur or the hair on your head falls out.'
 #---------------------------------------------------------------------------------------------------------------#Slime
 		elif second in [12,13]:
-			result = 'slime'
-	
+			color = randomcolor.rainbow()
+			third = diceroll(1,7)
+			if third in [1,5]:
+				'Your apendages become slimified, transforming into a ' + color + ' goo-like substance.'
+			elif third in [2,6]:
+				'Your torso becomes slimified, transforming into a ' + color + ' goo-like substance.'
+			elif third in [3,7]:
+				'Your head becomes slimified, transforming into a ' + color + ' goo-like substance.'
+			else:
+				'Your entire body becomes slimified, transforming into a ' + color + ' goo-like substance.'
 #===============================================================================================================#Diapers and incontinence
 	elif init in [12,13,28,29,34,35,50,51]:
 		result = 'diaper'

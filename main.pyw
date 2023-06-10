@@ -149,7 +149,16 @@ class rUndies():
 		return d
 
 def rSpecies():
-	init = diceroll()
+	init = diceroll(1,4)
+	if init == 1:
+		s = 'canine'
+	elif init == 2:
+		s = 'feline'
+	elif init == 3:
+		s = 'equine'
+	else:
+		s = 'dragon'
+	return s
 
 #this is the main meat of the program
 def clicked():

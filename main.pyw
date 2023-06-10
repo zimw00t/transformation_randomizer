@@ -244,7 +244,7 @@ def clicked():
 				result = 'Your entire body becomes slimified, transforming into a ' + color + ' goo-like substance.'
 #===============================================================================================================#Diapers and incontinence
 	elif init in [12,13,28,29,34,35,50,51]:
-		second = diceroll(1,20)
+		second = diceroll(1,25)
 		if second in [1,11]:
 			result = 'Your bladder becomes full.'
 		elif second in [2,12]:
@@ -259,9 +259,9 @@ def clicked():
 			result = 'Replace whatever underwear or diaper you currently have with a pair of ' + rUndies.panties() + '.'
 		elif second in [7,17]:
 			result = 'Layer on a pair of ' + rUndies.panties() + ' over whatever other underwear or diaper you\'ve got on.'
-		elif second in [8,18]:
+		elif second in [8,18,21,24]:
 			result = 'Replace whatever underwear or diaper you currently have with a ' + rUndies.diaper() + '.'
-		elif second in [9,19]:
+		elif second in [9,19,23,25]:
 			result = 'Layer on a ' + rUndies.diaper() + ' over whatever other underwear or diaper you\'ve got on.'
 		else:
 			third = diceroll(1,6)

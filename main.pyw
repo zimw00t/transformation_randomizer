@@ -329,7 +329,12 @@ def clicked():
 	elif init in [10,11,26,27,36,37,52,53]:
 		second = diceroll(1,20)
 		if seceond in [1,5,9,13,17]:
-			
+			third = diceroll(1,13)
+			if third in [1,6,11]:
+			elif third in [2,7,12]:
+			elif third in [3,8,13]:
+			elif third in [4,9]:
+			else:
 		elif second in [2,6,10,14,18]:
 			
 		elif second in [3,7,11,15,19]:

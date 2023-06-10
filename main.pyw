@@ -148,6 +148,9 @@ class rUndies():
 			d = 'cutesy ABDL diaper'
 		return d
 
+def rSpecies():
+	init = diceroll()
+
 #this is the main meat of the program
 def clicked():
 	result = ''
@@ -315,8 +318,15 @@ def clicked():
 			result = 'You are locked in a ' + rUndies.diaper() + ' ' + time + ' If you\'re already wearing a diaper just use that one.'
 #===============================================================================================================#Gender and genitalia
 	elif init in [10,11,26,27,36,37,52,53]:
-		result = 'genitalia'
-	
+		second = diceroll(1,20)
+		if seceond in [1,5,9,13,17]:
+			
+		elif second in [2,6,10,14,18]:
+			
+		elif second in [3,7,11,15,19]:
+			
+		else:
+			
 #===============================================================================================================#Mind altering
 	elif init in [8,9,24,25,38,39,54,55]:
 		result = 'mind'

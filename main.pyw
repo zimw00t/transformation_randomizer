@@ -26,56 +26,6 @@ def diceroll(numdice, numsides):
 	return total
 
 #random color function
-class randomcolor():
-	def hair():
-		second = diceroll(1,6)
-		if second == 1:
-			color = 'blonde'
-		elif second == 2:
-			color = 'auburn'
-		elif second == 3:
-			color = 'brown'
-		elif second == 4:
-			color = 'black'
-		elif second == 5:
-			color = 'gray'
-		else:
-			color = 'white'
-		return color
-	
-	def rainbow():
-		second = diceroll(1,11)
-		if second == 1:
-			color = 'red'
-		elif second == 2:
-			color = 'orange'#init
-import tkinter as tk
-from tkinter import messagebox
-import random
-
-window = tk.Tk()
-
-frame1 = tk.Frame(window)
-frame1.pack(side = tk.BOTTOM)
-
-ws = window.winfo_screenwidth()
-hs = window.winfo_screenheight()
-x = (ws/2) - 125
-y = (hs/2) - 35
-
-window.title("Randomizer")
-window.geometry('%dx%d+%d+%d' % (250, 70, x, y))
-window.resizable(width=False, height=False)
-
-#diceroll function to implement randomization a little neater
-def diceroll(numdice, numsides):
-	total = 0
-	for r in range(0,numdice):
-		total = total + random.randint(1,numsides)
-	print('Dice result: ' + str(total))
-	return total
-
-#random color function
 class rColor():
 	def hair():
 		second = diceroll(1,6)

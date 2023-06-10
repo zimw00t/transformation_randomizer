@@ -99,13 +99,15 @@ class rUndies():
 		return d
 
 def rSpecies():
-	init = diceroll(1,4)
+	init = diceroll(1,5)
 	if init == 1:
+		s = 'human'
+	elif init ==2:
 		s = 'canine'
-	elif init == 2:
-		s = 'feline'
 	elif init == 3:
-		s = 'equine'
+		s = 'feline'
+	elif init == 4:
+		s = 'horse'
 	else:
 		s = 'dragon'
 	return s
@@ -278,19 +280,53 @@ def clicked():
 #===============================================================================================================#Gender and genitalia
 	elif init in [10,11,26,27,36,37,52,53]:
 		second = diceroll(1,20)
-		if seceond in [1,5,9,13,17]:
+		if seceond in [1,5,9,13,17]:			#Dicks
 			third = diceroll(1,13)
 			if third in [1,6,11]:
+				result = 'Your cock gets bigger. If you don\'t have one grow a ' + rSpecies() + ' one. If you have multiple just pick one.'
 			elif third in [2,7,12]:
+				result = 'Your cock gets smaller. If it\'s already small enough you can make it disappear completely instead. If you have mulitple just pick one.'
 			elif third in [3,8,13]:
+				result = 'Replace your cock with a ' + rSpecies() + ' cock. If you don\'t have any cocks grow one. If you have multiple just pick one.'
 			elif third in [4,9]:
+				result = 'Replace your cock with an ovipositor tentacle. If you don\'t have any cocks grow one. If you have multiple just pick one.'
 			else:
-		elif second in [2,6,10,14,18]:
-			
-		elif second in [3,7,11,15,19]:
-			
-		else:
-			
+				result = 'Grow a ' + rSpecies() + ' cock in addition to any you already have.'
+		
+		elif second in [2,6,10,14,18]:			#Bobs
+			third = diceroll(1,13)
+			if third in [1,6,11]:
+				result = 'Your breasts get bigger. If you don\'t have any, grow a pair.'
+			elif third in [2,7,12]:
+				result = 'Your breasts get smaller, disappearing completely if they\'re already small enough.'
+			elif third in [3,8,13]:
+				result = 'Your nipples get bigger, longer, and more sensitive.'
+			elif third in [4,9]:
+				result = 'The tips of your nipples become fuckable.'
+			else:
+				result = 'Grow an addition row of breasts. If you have none grow a first row of breasts.'
+		
+		elif second in [3,7,11,15,19]:			#Vagoo
+			third = diceroll(1,14)
+			if third in [1,6,11]:
+				result = 'Your vagina becomes more loose. If you don\'t have one grow one, and a womb to go with it.'
+			elif third in [2,7,12]:
+				result = 'Your vagina\'s capacity gets deeper, able to take larger insertions more easily. If you don\'t have one grow one, and a womb to go with it.'
+			elif third in [3,8,13]:
+				result = 'Your vagina gets tighter, or seals up entirely removing your womb with it.'
+			elif third in [4,9,14]:
+				result = 'Your genitals become more sensitive to pleasure.'
+			else:
+				result = 'If your vaginal virginity was taken already, your hymen is now restored. (Optionally it becomes self-regenerating so that it gets restored every time from now on.)'
+		
+		else:									#Ass
+			third = diceroll(1,6)
+			if third in [1,4]:
+				result = 'Your ass hole becomes looser. This may affect continence.'
+			elif third in [2,5]:
+				result = 'Your ass hole becomes tighter.'
+			else:
+				result = 'The sensitivity of your ass hole increases, becoming more of a sexual organ.'
 #===============================================================================================================#Mind altering
 	elif init in [8,9,24,25,38,39,54,55]:
 		result = 'mind'

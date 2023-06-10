@@ -158,7 +158,7 @@ def clicked():
 					result += 'clown makeup.'
 #---------------------------------------------------------------------------------------------------------------#Furry features
 		elif second in [14,16,18,20]:
-			third = diceroll(1,20)
+			third = diceroll(1,21)
 			if third in [1,8,14,18,20]:		#Dog
 				fourth = diceroll(1,9)
 				if fourth in [1,5,8]:
@@ -202,7 +202,7 @@ def clicked():
 			elif third in [5,12]:			#Teeth
 				result = 'Your teeth become sharp like a predator.'
 				
-			elif third in [6,13]:			#Fur
+			elif third in [6,13,21]:			#Fur
 				fourth = diceroll(1,10)
 				if fourth in [1,2,3,5,7,8,9]:
 					color = rColor.hair()
@@ -360,11 +360,11 @@ def clicked():
 			result = 'You gain a new trigger word related to ' + trigger
 #===============================================================================================================#Physical age
 	elif init in [6,7,22,23,40,41,56,57]:
-		second = diceroll(1,2)
-		if second == 1:
+		second = diceroll(1,3)
+		if second in [1,2]:
 			result = 'You get ' + str(diceroll(1,5)) + ' year(s) younger. Can stop at whatever age minimum you want, or can lead to unbirth if you want.'
 		else:
-			result = 'You get ' + str(diceroll(1,5)) + ' year(s) older. Can stop at whatever age maximum you want.'
+			result = 'You get ' + str(diceroll(1,2)) + ' year(s) older. Can stop at whatever age maximum you want.'
 #===============================================================================================================#Pregnancy related
 	elif init in [4,5,20,21,42,43,58,59]:
 		second = diceroll(1,17)

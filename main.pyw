@@ -114,6 +114,7 @@ def rSpecies():
 
 #this is the main meat of the program
 def clicked():
+	print('Button clicked!')
 	result = ''
 	init = diceroll(3,20)
 #===============================================================================================================#Animal Transformation
@@ -329,24 +330,109 @@ def clicked():
 				result = 'The sensitivity of your ass hole increases, becoming more of a sexual organ.'
 #===============================================================================================================#Mind altering
 	elif init in [8,9,24,25,38,39,54,55]:
-		result = 'mind'
-	
+		second = diceroll(1,16)
+		if second in [1,9]:
+			result = 'You lose some of your maturity, becoming mentally younger.'
+		elif second in [2,10]:
+			result = 'You become more intelligent.'
+		elif second in [3,11]:
+			result = 'Your thoughts become more feminine.'
+		elif second in [4,12]:
+			result = 'Your thoughts become more masculine.'
+		elif second in [5,13]:
+			result = 'You feel yourself becoming more physically attracted to men.'
+		elif second in [6,14]:
+			result = 'You feel yourself becoming more physically attracted to women.'
+		elif second in [7,15]:
+			result = 'You feel yourself becoming more physically attracted to animals.'
+		else:
+			third = diceroll(1,5)
+			if third == 1:
+				trigger = 'incontinence.'
+			elif third == 2:
+				trigger = 'sexual pleasure.'
+			elif third == 3:
+				trigger = 'master-slave relationships.'
+			elif third == 4:
+				trigger = 'gender.'
+			else:
+				trigger = 'furry transformation.'
+			result = 'You gain a new trigger word related to ' + trigger
 #===============================================================================================================#Physical age
 	elif init in [6,7,22,23,40,41,56,57]:
-		result = 'age'
-	
+		second = diceroll(1,2)
+		if second == 1:
+			result = 'You get ' + str(diceroll(1,5)) + ' year(s) younger. Can stop at whatever age minimum you want, or can lead to unbirth if you want.'
+		else:
+			result = 'You get ' + str(diceroll(1,5)) + ' year(s) older. Can stop at whatever age maximum you want.'
 #===============================================================================================================#Pregnancy related
 	elif init in [4,5,20,21,42,43,58,59]:
-		result = 'preg'
-	
-#===============================================================================================================#Bondage
+		second = diceroll(1,17)
+		if second in [1,7,13]:
+			result = 'Your chances to get pregnant or impregnante others increases dramatically.'
+		elif second in [2,8,14]:
+			result = 'You begin lactating, or increase your milk production if you already are.'
+		elif second in [3,9,15]:
+			result = 'Your sperm production increases, even if you don\'t have a penis (squirt sperm from vagina.)'
+		elif second in [4,10,16]:
+			result = 'If you\'re lactating your milk becomes addictive. If not any milk you drink from now on will be addictive to you.'
+		elif second in [5,11,17]:
+			result = 'You become pregnant, or if you already are your pregnancy is sped along to the next stage. If you have no vagina a pseudo-womb located in your butt is created for the duration of the pregnancy.'
+		else:
+			result = 'A tentacle appears from a magic portal and lays eggs inside your womb (or colon if you don\'t have a womb.) If you leave them in there too long they might hatch inside you.'
+#===============================================================================================================#Bondage/Clothing
 	elif init in [18,19,44,45]:
-		result = 'bonds'
-	
+		second = diceroll(1,18)
+		if second in [1,10]:
+			result = 'You must take off all your clothes, except any diapers you\'re wearing.'
+		elif second in [2,11]:
+			result = 'You can no longer walk like an adult, and must crawl around like a baby.'
+		elif second in [3,12]:
+			result = 'Your hands are restrained by a pair of cute mittens, making it harder to grab and hold onto stuff.'
+		elif second in [4,13]:
+			result = 'A tight leather bondage outfit appears on you, under your clothes if you\'re wearing any. By itself it leaves all your genitals still exposed, and you can\'t seem to take it off.'
+		elif second in [5,14]:
+			result = 'A pair of cute stockings appear on your legs.'
+		elif second in [6,15]:
+			result = 'Your hands are bound with cuffs that can only be removed by someone else.'
+		elif second in [7,16]:
+			result = 'Your legs are bound with cuffs that can only be removed by someone else.'
+		elif second in [8,17]:
+			result = 'A slave collar appears around your neck, with a leash attached. Whoever holds the leash becomes your owner, and you must obey anything they tell you.'
+		else:
+			third = diceroll(1,3)
+			if third == 1:
+				result = 'A ball gag appears in your mouth, it can only be removed by someone else.'
+			elif third == 2:
+				result = 'A ring gag appears in your mouth, it can only be removed by someone else.'
+			else:
+				result = 'A pacifier appears in your mouth, it can only be removed by someone else.'	
 #===============================================================================================================#Rare
 	else:
-		result = 'other'
-
+		second = diceroll(1,22)
+		if second in [1,12]:
+			result = 'You become a succubus/incubus, able to excite the libido of others and extract their sexual fluids for sustenance.'
+		elif second in [2,13]:
+			result = 'Your tongue becomes extra long.'
+		elif second in [3,14]:
+			result = 'A tattoo appears upon your navel. It constantly makes you more aroused, and glows faintly during sex. Upon orgasm the pattern becomes more intricate, taking up more space, and the effect gets stronger.'
+		elif second in [4,15]:
+			result = 'Your personality is liquified into a gel-like substance, and will come leaking out your ass if you don\'t manage to hold it in, leaving your body a hollow shell and you as a blob of ' + rColor.rainbow() + ' goo.'
+		elif second in [5,16]:
+			result = 'Your mouth becomes a vagina.'
+		elif second in [6,17]:
+			result = 'A hole opens in your belly-button, making it fuckable.'
+		elif second in [7,18]:
+			result = 'Your nipples transform into mini ' + rSpecies() + ' cocks.'
+		elif second in [8,19]:
+			result = 'Your nipples transform into mini vaginas.'
+		elif second in [9,20]:
+			result = 'From now on when you cum, your nipples will also shoot out milk. This milk will be much thicker and sweeter than normal as well, more sticky and syrupy.'
+		elif second in [10,21]:
+			result = 'Your senses become connected with whoever you make physical contact with. You feel everything they feel.'
+		else:
+			result = 'The next person you have sex with will be absorbed into and become your genitals.'
+#===============================================================================================================#End of transformations
 	#display the result as a message box
 	messagebox.showinfo('Transformation Result', result)
 

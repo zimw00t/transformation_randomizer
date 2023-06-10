@@ -280,7 +280,7 @@ def clicked():
 #===============================================================================================================#Gender and genitalia
 	elif init in [10,11,26,27,36,37,52,53]:
 		second = diceroll(1,20)
-		if seceond in [1,5,9,13,17]:			#Dicks
+		if second in [1,5,9,13,17]:						#Dicks
 			third = diceroll(1,13)
 			if third in [1,6,11]:
 				result = 'Your cock gets bigger. If you don\'t have one grow a ' + rSpecies() + ' one. If you have multiple just pick one.'
@@ -293,7 +293,7 @@ def clicked():
 			else:
 				result = 'Grow a ' + rSpecies() + ' cock in addition to any you already have.'
 		
-		elif second in [2,6,10,14,18]:			#Bobs
+		elif second in [2,6,10,14,18]:						#Bobs
 			third = diceroll(1,13)
 			if third in [1,6,11]:
 				result = 'Your breasts get bigger. If you don\'t have any, grow a pair.'
@@ -306,7 +306,7 @@ def clicked():
 			else:
 				result = 'Grow an addition row of breasts. If you have none grow a first row of breasts.'
 		
-		elif second in [3,7,11,15,19]:			#Vagoo
+		elif second in [3,7,11,15,19]:						#Vagoo
 			third = diceroll(1,14)
 			if third in [1,6,11]:
 				result = 'Your vagina becomes more loose. If you don\'t have one grow one, and a womb to go with it.'

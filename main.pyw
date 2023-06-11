@@ -26,6 +26,7 @@ def diceroll(numdice, numsides):
 		seed = seed.replace(':','')
 		seed = seed.replace('-','')
 		seed = seed.replace(' ','')
+		seed = seed.replace('.','')
 		print('Radomization seed: ' + seed)
 		random.seed(int(seed))
 		total = total + random.randint(1,numsides)

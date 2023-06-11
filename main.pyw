@@ -18,17 +18,21 @@ window.title("Randomizer")
 window.geometry('%dx%d+%d+%d' % (250, 70, x, y))
 window.resizable(width=False, height=False)
 
+seed2 = 0
+
 #diceroll function to implement randomization a little neater
 def diceroll(numdice, numsides):
 	total = 0
+	global seed2
 	for r in range(0,numdice):
-		seed = str(datetime.datetime.now())
-		seed = seed.replace(':','')
-		seed = seed.replace('-','')
-		seed = seed.replace(' ','')
-		seed = seed.replace('.','')
-		print('Radomization seed: ' + seed)
-		random.seed(int(seed))
+		seed1 = str(datetime.datetime.now())
+		seed1 = seed1.replace(':','')
+		seed1 = seed1.replace('-','')
+		seed1 = seed1.replace(' ','')
+		seed1 = seed1.replace('.','')
+		seed2 = seed2 + 512
+		print('Radomization seed: ' + str(int(seed1)+seed2))
+		random.seed(int(seed1) + seed2 + random.randint(1,1000))
 		total = total + random.randint(1,numsides)
 	print('Dice result: ' + str(total))
 	return total

@@ -2,6 +2,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import random
+import datetime
 
 window = tk.Tk()
 
@@ -21,6 +22,12 @@ window.resizable(width=False, height=False)
 def diceroll(numdice, numsides):
 	total = 0
 	for r in range(0,numdice):
+		seed = str(datetime.datetime.now())
+		seed = seed.replace(':','')
+		seed = seed.replace('-','')
+		seed = seed.replace(' ','')
+		print('Radomization seed: ' + seed)
+		random.seed(int(seed))
 		total = total + random.randint(1,numsides)
 	print('Dice result: ' + str(total))
 	return total

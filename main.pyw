@@ -21,26 +21,25 @@ window.resizable(width=False, height=False)
 seed2 = 0
 
 #diceroll function to implement randomization a little neater
-def diceroll(numdice, numsides):
+def diceroll(numsides):
 	total = 0
 	global seed2
-	for r in range(0,numdice):
-		seed1 = str(datetime.datetime.now())
-		seed1 = seed1.replace(':','')
-		seed1 = seed1.replace('-','')
-		seed1 = seed1.replace(' ','')
-		seed1 = seed1.replace('.','')
-		seed2 = seed2 + 512
-		print('Radomization seed: ' + str(int(seed1)+seed2))
-		random.seed(int(seed1) + seed2 + random.randint(1,1000))
-		total = total + random.randint(1,numsides)
+	seed1 = str(datetime.datetime.now())
+	seed1 = seed1.replace(':','')
+	seed1 = seed1.replace('-','')
+	seed1 = seed1.replace(' ','')
+	seed1 = seed1.replace('.','')
+	seed2 = seed2 + 512
+	print('Radomization seed: ' + str(int(seed1)+seed2))
+	random.seed(int(seed1) + seed2 + random.randint(1,1000))
+	total = total + random.randint(1,numsides)
 	print('Dice result: ' + str(total))
 	return total
 
 #random color function
 class rColor():
 	def hair():
-		second = diceroll(1,6)
+		second = diceroll(6)
 		if second == 1:
 			color = 'blonde'
 		elif second == 2:
@@ -56,7 +55,7 @@ class rColor():
 		return color
 	
 	def rainbow():
-		second = diceroll(1,11)
+		second = diceroll(11)
 		if second == 1:
 			color = 'red'
 		elif second == 2:
@@ -83,7 +82,7 @@ class rColor():
 
 class rUndies():
 	def panties():
-		init = diceroll(1,5)
+		init = diceroll(5)
 		if init == 1:
 			p = rColor.rainbow()
 		elif init == 2:
@@ -97,7 +96,7 @@ class rUndies():
 		return p + ' panties'
 
 	def diaper():
-		init = diceroll(1,5)
+		init = diceroll(5)
 		if init == 1:
 			d = 'pair of thick training panties'
 		elif init == 2:
@@ -111,7 +110,7 @@ class rUndies():
 		return d
 
 def rSpecies():
-	init = diceroll(1,5)
+	init = diceroll(5)
 	if init == 1:
 		s = 'human'
 	elif init ==2:
@@ -128,24 +127,24 @@ def rSpecies():
 def clicked():
 	print('Button clicked!')
 	result = ''
-	init = diceroll(3,20)
+	init = diceroll(40)
 #===============================================================================================================#Animal Transformation
-	if init in [14,15,30,31,32,33,48,49]:
-		second = diceroll(1,20)
+	if init in [1,9,17,25,32,37,40]:
 #---------------------------------------------------------------------------------------------------------------#Fur color
-		if second in [1,5,9,11,15,19]:
-			third = diceroll(1,10)
-			if third in [1,2,3,5,7,8,9]:
+		second = diceroll(20)
+		if second in [1,6,11,15,18,20]:
+			third = diceroll(3)
+			if third in [1,3]:
 				color = rColor.hair()
 			else:
 				color = rColor.rainbow()
 			result = 'All your hair and/or fur is died ' + color + '.'
 #---------------------------------------------------------------------------------------------------------------#Skin color
-		elif second in [2,4,6,8,10]:
+		elif second in [2,7,12,16,19]:
 			result = 'Your skin color changes, becoming '
-			third = diceroll(1,10)
+			third = diceroll(10)
 			if third in [1,2,3,5,7,8,9]:
-				fourth = diceroll(1,5)
+				fourth = diceroll(5)
 				if fourth == 1:
 					result += 'white.'
 				elif fourth == 2:
@@ -157,7 +156,7 @@ def clicked():
 				else:
 					result += 'ebony.'
 			else:
-				fourth = diceroll(1,9)
+				fourth = diceroll(9)
 				if fourth in [1,5]:
 					result += 'red.'
 				elif fourth in [2,6]:
@@ -169,10 +168,10 @@ def clicked():
 				else:
 					result += 'clown makeup.'
 #---------------------------------------------------------------------------------------------------------------#Furry features
-		elif second in [14,16,18,20]:
-			third = diceroll(1,21)
+		elif second in [3,8,13,17]:
+			third = diceroll(21)
 			if third in [1,8,14,18,20]:		#Dog
-				fourth = diceroll(1,9)
+				fourth = diceroll(9)
 				if fourth in [1,5,8]:
 					result = 'Grow a dog tail or replace tail with dog tail.'
 				elif fourth in [2,6,9]:
@@ -183,7 +182,7 @@ def clicked():
 					result = 'Your face changes to become like a dog snout.'
 					
 			elif third in [2,9,15,19]:		#Cat
-				fourth = diceroll(1,9)
+				fourth = diceroll(9)
 				if fourth in [1,5,8]:
 					result = 'Grow a cat tail or replace tail with cat tail.'
 				elif fourth in [2,6,9]:
@@ -194,7 +193,7 @@ def clicked():
 					result = 'Your face changes to become like a cat, growing whiskers and such.'
 					
 			elif third in [3,10,16]:		#Horse
-				fourth = diceroll(1,9)
+				fourth = diceroll(9)
 				if fourth in [1,5,8]:
 					result = 'Grow a horse tail or replace tail with horse tail.'
 				elif fourth in [2,6,9]:
@@ -205,7 +204,7 @@ def clicked():
 					result = 'Your face changes to becomes like a horse.'
 					
 			elif third in [4,11,17]:		#Bunny
-				fourth = diceroll(1,2)
+				fourth = diceroll(2)
 				if fourth == 1:
 					result = 'Grow a bunny tail or replace tail with bunny tail.'
 				else:
@@ -215,7 +214,7 @@ def clicked():
 				result = 'Your teeth become sharp like a predator.'
 				
 			elif third in [6,13,21]:			#Fur
-				fourth = diceroll(1,10)
+				fourth = diceroll(10)
 				if fourth in [1,2,3,5,7,8,9]:
 					color = rColor.hair()
 				else:
@@ -225,9 +224,9 @@ def clicked():
 			else:							#Cow udders
 				result = 'Grow cow udders under your navel.'
 #---------------------------------------------------------------------------------------------------------------#Scaley features
-		elif second in [3,7,17]:
+		elif second in [4,9,14]:
 			color = rColor.rainbow()
-			third = diceroll(1,20)
+			third = diceroll(20)
 			if third in [1,8,15,20]:
 				result = 'Grow a dragon tail or replace tail with dragon tail. The scales are ' + color + ' colored.'
 			elif third in [2,9,16]:
@@ -243,9 +242,9 @@ def clicked():
 			else:
 				result = 'Reptilian hair loss. Either body fur or the hair on your head falls out.'
 #---------------------------------------------------------------------------------------------------------------#Slime
-		elif second in [12,13]:
+		else:
 			color = rColor.rainbow()
-			third = diceroll(1,7)
+			third = diceroll(7)
 			if third in [1,5]:
 				result = 'Your apendages become slimified, transforming into a ' + color + ' goo-like substance.'
 			elif third in [2,6]:
@@ -255,8 +254,8 @@ def clicked():
 			else:
 				result = 'Your entire body becomes slimified, transforming into a ' + color + ' goo-like substance.'
 #===============================================================================================================#Diapers and incontinence
-	elif init in [12,13,28,29,34,35,50,51]:
-		second = diceroll(1,25)
+	elif init in [2,10,18,26,33,38]:
+		second = diceroll(25)
 		if second in [1,11]:
 			result = 'Your bladder becomes full.'
 		elif second in [2,12]:
@@ -276,7 +275,7 @@ def clicked():
 		elif second in [9,19,23,25]:
 			result = 'Layer on a ' + rUndies.diaper() + ' over whatever other underwear or diaper you\'ve got on.'
 		else:
-			third = diceroll(1,6)
+			third = diceroll(6)
 			if third == 1:
 				time = 'for 1 hour'
 			elif third == 2:
@@ -291,10 +290,10 @@ def clicked():
 				time = 'until it has been used at least 4 times.'
 			result = 'You are locked in a ' + rUndies.diaper() + ' ' + time + ' If you\'re already wearing a diaper just use that one.'
 #===============================================================================================================#Gender and genitalia
-	elif init in [10,11,26,27,36,37,52,53]:
-		second = diceroll(1,20)
+	elif init in [3,11,19,27,34,39]:
+		second = diceroll(20)
 		if second in [1,5,9,13,17]:						#Dicks
-			third = diceroll(1,13)
+			third = diceroll(13)
 			if third in [1,6,11]:
 				result = 'Your cock gets bigger. If you don\'t have one grow a ' + rSpecies() + ' one. If you have multiple just pick one.'
 			elif third in [2,7,12]:
@@ -307,7 +306,7 @@ def clicked():
 				result = 'Grow a ' + rSpecies() + ' cock in addition to any you already have.'
 		
 		elif second in [2,6,10,14,18]:						#Bobs
-			third = diceroll(1,13)
+			third = diceroll(13)
 			if third in [1,6,11]:
 				result = 'Your breasts get bigger. If you don\'t have any, grow a pair.'
 			elif third in [2,7,12]:
@@ -320,7 +319,7 @@ def clicked():
 				result = 'Grow an addition row of breasts. If you have none grow a first row of breasts.'
 		
 		elif second in [3,7,11,15,19]:						#Vagoo
-			third = diceroll(1,14)
+			third = diceroll(14)
 			if third in [1,6,11]:
 				result = 'Your vagina becomes more loose. If you don\'t have one grow one, and a womb to go with it.'
 			elif third in [2,7,12]:
@@ -333,7 +332,7 @@ def clicked():
 				result = 'If your vaginal virginity was taken already, your hymen is now restored. (Optionally it becomes self-regenerating so that it gets restored every time from now on.)'
 		
 		else:									#Ass
-			third = diceroll(1,6)
+			third = diceroll(6)
 			if third in [1,4]:
 				result = 'Your ass hole becomes looser. This may affect continence.'
 			elif third in [2,5]:
@@ -341,8 +340,8 @@ def clicked():
 			else:
 				result = 'The sensitivity of your ass hole increases, becoming more of a sexual organ.'
 #===============================================================================================================#Mind altering
-	elif init in [8,9,24,25,38,39,54,55]:
-		second = diceroll(1,16)
+	elif init in [4,12,20,28,35]:
+		second = diceroll(16)
 		if second in [1,9]:
 			result = 'You lose some of your maturity, becoming mentally younger.'
 		elif second in [2,10]:
@@ -358,7 +357,7 @@ def clicked():
 		elif second in [7,15]:
 			result = 'You feel yourself becoming more physically attracted to animals.'
 		else:
-			third = diceroll(1,5)
+			third = diceroll(5)
 			if third == 1:
 				trigger = 'incontinence.'
 			elif third == 2:
@@ -369,50 +368,61 @@ def clicked():
 				trigger = 'gender.'
 			else:
 				trigger = 'furry transformation.'
-			result = 'You gain a new trigger word related to ' + trigger
+			result = 'You gain a new trigger word related to ' + trigger + ' Optionally the word can be tattooed somewhere on your body.'
 #===============================================================================================================#Physical age
-	elif init in [6,7,22,23,40,41,56,57]:
-		second = diceroll(1,3)
+	elif init in [5,13,21,29,36]:
+		second = diceroll(3)
 		if second in [1,2]:
-			result = 'You get ' + str(diceroll(1,5)) + ' year(s) younger. Can stop at whatever age minimum you want, or can lead to unbirth if you want.'
+			result = 'You get ' + str(diceroll(5)) + ' year(s) younger. Can stop at whatever age minimum you want, or can lead to unbirth if you want.'
 		else:
-			result = 'You get ' + str(diceroll(1,2)) + ' year(s) older. Can stop at whatever age maximum you want.'
+			result = 'You get ' + str(diceroll(2)) + ' year(s) older. Can stop at whatever age maximum you want.'
 #===============================================================================================================#Pregnancy related
-	elif init in [4,5,20,21,42,43,58,59]:
-		second = diceroll(1,17)
-		if second in [1,7,13]:
+	elif init in [6,14,22,30]:
+		second = diceroll(19)
+		if second in [1,8,15]:
 			result = 'Your chances to get pregnant or impregnante others increases dramatically.'
-		elif second in [2,8,14]:
+		elif second in [2,9,16]:
 			result = 'You begin lactating, or increase your milk production if you already are.'
-		elif second in [3,9,15]:
+		elif second in [3,10,17]:
 			result = 'Your sperm production increases, even if you don\'t have a penis (squirt sperm from vagina.)'
-		elif second in [4,10,16]:
+		elif second in [4,11,18]:
 			result = 'If you\'re lactating your milk becomes addictive. If not any milk you drink from now on will be addictive to you.'
-		elif second in [5,11,17]:
+		elif second in [5,12,19]:
 			result = 'You become pregnant, or if you already are your pregnancy is sped along to the next stage. If you have no vagina a pseudo-womb located in your butt is created for the duration of the pregnancy.'
+		elif second in [6,13]:
+			result = 'Becoming pregnant and the act of giving birth will be more sexually pleasurable for you from now on.'
 		else:
 			result = 'A tentacle appears from a magic portal and lays eggs inside your womb (or colon if you don\'t have a womb.) If you leave them in there too long they might hatch inside you.'
 #===============================================================================================================#Bondage/Clothing
-	elif init in [18,19,44,45]:
-		second = diceroll(1,18)
-		if second in [1,10]:
+	elif init in [7,15,23,31]:
+		second = diceroll(20)
+		if second in [1,11]:
 			result = 'You must take off all your clothes, except any diapers you\'re wearing.'
-		elif second in [2,11]:
+		elif second in [2,12]:
 			result = 'You can no longer walk like an adult, and must crawl around like a baby.'
-		elif second in [3,12]:
+		elif second in [3,13]:
 			result = 'Your hands are restrained by a pair of cute mittens, making it harder to grab and hold onto stuff.'
-		elif second in [4,13]:
+		elif second in [4,14]:
 			result = 'A tight leather bondage outfit appears on you, under your clothes if you\'re wearing any. By itself it leaves all your genitals still exposed, and you can\'t seem to take it off.'
-		elif second in [5,14]:
+		elif second in [5,15]:
 			result = 'A pair of cute stockings appear on your legs.'
-		elif second in [6,15]:
+		elif second in [6,16]:
 			result = 'Your hands are bound with cuffs that can only be removed by someone else.'
-		elif second in [7,16]:
+		elif second in [7,17]:
 			result = 'Your legs are bound with cuffs that can only be removed by someone else.'
-		elif second in [8,17]:
+		elif second in [8,18]:
 			result = 'A slave collar appears around your neck, with a leash attached. Whoever holds the leash becomes your owner, and you must obey anything they tell you.'
+		elif second in [9,19]:
+			third = diceroll(3)
+			if third == 1:
+				p = 'nipples.'
+			elif third == 2:
+				p = 'clit or cock.'
+			else:
+				p = 'nose.'
+			result = 'Receive a piercing on your ' + p
 		else:
-			third = diceroll(1,3)
+			third = diceroll(3)
 			if third == 1:
 				result = 'A ball gag appears in your mouth, it can only be removed by someone else.'
 			elif third == 2:
@@ -421,7 +431,7 @@ def clicked():
 				result = 'A pacifier appears in your mouth, it can only be removed by someone else.'	
 #===============================================================================================================#Rare
 	else:
-		second = diceroll(1,22)
+		second = diceroll(22)
 		if second in [1,12]:
 			result = 'You become a succubus/incubus, able to excite the libido of others and extract their sexual fluids for sustenance.'
 		elif second in [2,13]:

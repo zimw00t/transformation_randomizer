@@ -1,6 +1,5 @@
 #init
 import tkinter as tk
-from tkinter import messagebox
 import random
 import datetime
 
@@ -8,15 +7,24 @@ window = tk.Tk()
 
 frame1 = tk.Frame(window)
 frame1.pack(side = tk.BOTTOM)
+frame2 = tk.Frame(window)
+frame2.pack(side = tk.TOP)
 
 ws = window.winfo_screenwidth()
 hs = window.winfo_screenheight()
-x = (ws/2) - 125
-y = (hs/2) - 35
+w = 300
+h = 200
+x = (ws/2) - (w/2)
+y = (hs/2) - (h/2)
 
 window.title("Randomizer")
-window.geometry('%dx%d+%d+%d' % (250, 70, x, y))
+window.geometry('%dx%d+%d+%d' % (w, h, x, y))
 window.resizable(width=False, height=False)
+
+#a label
+result = 'poop'
+lbl = tk.Label(frame2, text=result, wraplength=250)
+lbl.pack(pady=20)
 
 seed2 = 0
 
@@ -126,7 +134,7 @@ def rSpecies():
 #this is the main meat of the program
 def clicked():
 	print('Button clicked!')
-	result = ''
+	global result
 	init = diceroll(40)
 #===============================================================================================================#Animal Transformation
 	if init in [1,9,17,25,32,37,40]:
@@ -456,7 +464,7 @@ def clicked():
 			result = 'The next person you have sex with will be absorbed into and become your genitals.'
 #===============================================================================================================#End of transformations
 	#display the result as a message box
-	messagebox.showinfo('Transformation Result', result)
+	lbl.config(text=result)
 
 #the button itself
 btn = tk.Button(frame1, text="Transform Me!", command=clicked)
